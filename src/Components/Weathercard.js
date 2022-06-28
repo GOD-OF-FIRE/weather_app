@@ -18,7 +18,7 @@ const Weathercard = ({
       switch (weathermood) {
         case "Clouds":
           setWeatheState("wi-day-cloudy");
-          setBgcolor("#313235")
+          setBgcolor("#7F7F7F")
           break;
         case "Haze":
           setWeatheState("wi-fog");
