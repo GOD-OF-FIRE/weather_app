@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 
+
 const Weathercard = ({
   temp,
   humidity,
@@ -11,26 +12,31 @@ const Weathercard = ({
   sunset,
 }) => {
   const [weatherState, setWeatheState] = React.useState("");
-
+  const [bgcolor,setBgcolor]= React.useState()
   useEffect(() => {
     if (weathermood) {
       switch (weathermood) {
         case "Clouds":
           setWeatheState("wi-day-cloudy");
+          setBgcolor("#313235")
           break;
         case "Haze":
           setWeatheState("wi-fog");
+          setBgcolor("#A7BCC9")
           break;
         case "Clear":
           setWeatheState("wi-day-sunny");
+          setBgcolor("#F1C973")
           break;
         case "Mist":
           setWeatheState("wi-dust");
+          setBgcolor("#816B56")
           break;
 
-        default:
-          setWeatheState("wi-day-sunny");
-          break;
+          default:
+            setWeatheState("wi-day-sunny");
+            setBgcolor("#F1C973")
+            break;
       }
     }
   }, [weathermood]);
@@ -42,10 +48,55 @@ const Weathercard = ({
   return (
     <>
       <article className="widget">
-        <div className="weatherIcon">
+        <div className="weatherIcon" style={{backgroundColor:`${bgcolor}`}}>
           <i className={`wi ${weatherState}`}></i>
         </div>
+        <div className="extra-temp" style={{backgroundColor:`${bgcolor}`}}>
+          <div className="temp-info-minmax">
+            <div className="two-sided-section first">
+              <p>
+                <i className={"wi wi-sunset"}></i>
+              </p>
+              <p className="extra-info-leftside">
+                {timeStr} PM <br />
+                Sunset
+              </p>
+            </div>
 
+            <div className="two-sided-section second">
+              <p>
+                <i className={"wi wi-humidity"}></i>
+              </p>
+              <p className="extra-info-leftside">
+                {humidity} <br />
+                Humidity
+              </p>
+            </div>
+          </div>
+
+          <div className="weather-extra-info">
+            <div className="two-sided-section first">
+              <p>
+                <i className={"wi wi-rain"}></i>
+              </p>
+              <p className="extra-info-leftside">
+                {pressure} <br />
+                Pressure
+              </p>
+            </div>
+
+            <div className="two-sided-section second">
+              <p>
+                <i className={"wi wi-strong-wind"}></i>
+              </p>
+              <p className="extra-info-leftside">
+                {speed} <br />
+                Speed
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className="date"> {new Date().toLocaleString()} </div>
         <div className="weatherInfo">
           <div className="temperature">
             <span>{temp}&deg;</span>
@@ -59,54 +110,10 @@ const Weathercard = ({
           </div>
         </div>
 
-        <div className="date"> {new Date().toLocaleString()} </div>
+        
 
         {/* our 4column section  */}
-        <div className="extra-temp">
-          <div className="temp-info-minmax">
-            <div className="two-sided-section">
-              <p>
-                <i className={"wi wi-sunset"}></i>
-              </p>
-              <p className="extra-info-leftside">
-                {timeStr} PM <br />
-                Sunset
-              </p>
-            </div>
-
-            <div className="two-sided-section">
-              <p>
-                <i className={"wi wi-humidity"}></i>
-              </p>
-              <p className="extra-info-leftside">
-                {humidity} <br />
-                Humidity
-              </p>
-            </div>
-          </div>
-
-          <div className="weather-extra-info">
-            <div className="two-sided-section">
-              <p>
-                <i className={"wi wi-rain"}></i>
-              </p>
-              <p className="extra-info-leftside">
-                {pressure} <br />
-                Pressure
-              </p>
-            </div>
-
-            <div className="two-sided-section">
-              <p>
-                <i className={"wi wi-strong-wind"}></i>
-              </p>
-              <p className="extra-info-leftside">
-                {speed} <br />
-                Speed
-              </p>
-            </div>
-          </div>
-        </div>
+        
       </article>
     </>
   );

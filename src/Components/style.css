@@ -13,7 +13,7 @@
   --dur: 0.3s;
   --color-dark: #bba7a7ee;
   --color-light: #fff;
-  --color-brand: #57bd84;
+  --color-brand: #6bbd579f;
   --font-fam: "Lato", sans-serif;
   --height: 5rem;
   --btn-width: 6rem;
@@ -21,8 +21,8 @@
 }
 
 body {
-  background-color: #f5f5f5;
-  background: var(--color-dark);
+  background-color: #FCC5C0;
+  /* background: var(--color-dark); */
   height: 100vh;
   min-height: 100vh;
   display: grid;
@@ -54,16 +54,16 @@ body {
 }
 
 .widget .weatherInfo {
-  flex: 0 0 70%;
+  flex: 70%;
   height: 40%;
-  background: #080705;
+  background: #C689C6;
   display: flex;
   align-items: center;
   color: white;
 }
 .widget .weatherInfo .temperature {
-  flex: 0 0 100%;
-  width: 100%;
+  flex: 30%;
+  /* width: 100%; */
   font-size: 65px;
   display: flex;
   justify-content: space-around;
@@ -71,7 +71,7 @@ body {
 }
 
 .widget .weatherInfo .description {
-  flex: 0 100%;
+  flex: 30%;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -87,9 +87,9 @@ body {
   font-size: 15px;
 }
 .widget .date {
-  flex: 0 0 30%;
+  flex: 25%;
   height: 40%;
-  background: #70c1b3;
+  background: #937DC2;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -97,13 +97,14 @@ body {
   font-size: 30px;
   font-weight: 800;
   text-align: center;
+  border-bottom-left-radius: 20px;
 }
 
 .widget .extra-temp {
   flex: 1 100%;
   padding: 5% 0;
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
+  /* border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px; */
   background: #fafafa;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -155,15 +156,13 @@ body {
   font-size: 18px;
 }
 
-.searchTerm:focus {
-  color: #00b4cc;
-}
+
 
 .searchButton {
   width: 80px;
   height: 32px;
   border: none;
-  background: #048b9c;
+  background: #937DC2;
   text-align: center;
   color: #fff;
   border-radius: 0 5px 5px 0;
@@ -196,4 +195,10 @@ body {
 } */
 .weatherInfo{
     width: 100%;
+      border-bottom-right-radius: 20px;
+      
+  
+}
+.wi{
+  color: black;
 }
