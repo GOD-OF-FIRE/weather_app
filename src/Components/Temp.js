@@ -1,10 +1,11 @@
 import React, {useEffect ,useState} from "react";
 import Weathercard from "./Weathercard";
 import "./style.css";
+import Forcast from "./Forcast";
 const Temp = () => {
-  const [searchValue,setSearchValue]=useState("Allahabad")
+  const [searchValue,setSearchValue]=useState("Bangalore")
   const [tempInfo, setTempInfo] = useState({});
-  const getWeatherInfo = async () => {
+  let getWeatherInfo = async () => {
     try {
       let url = `https://api.openweathermap.org/data/2.5/weather?q=${searchValue}&units=metric&appid=a8d88462c1d2eb36556b8329e72bb978`;
 
@@ -12,11 +13,11 @@ const Temp = () => {
       let data = await res.json();
 
 
-      const { temp, humidity, pressure } = data.main;
+      let { temp, humidity, pressure ,temp_min,temp_max} = data.main;
       const { main: weathermood } = data.weather[0];
       const { name } = data;
       const { speed } = data.wind;
-      const { country, sunset } = data.sys;
+      const { country, sunset,sunrise } = data.sys;
       console.log(data)
       const myNewWeatherInfo = {
         temp,
@@ -27,6 +28,8 @@ const Temp = () => {
         speed,
         country,
         sunset,
+        sunrise,
+        temp_min,temp_max,
       };
 
       setTempInfo(myNewWeatherInfo);
@@ -60,6 +63,11 @@ const Temp = () => {
         
       </div>
       <Weathercard {...tempInfo} />
+      <div>
+
+      </div>
+      <Forcast cityName={searchValue}/>
+      
     </>
   );
 };
