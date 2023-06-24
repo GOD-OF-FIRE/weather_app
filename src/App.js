@@ -4,10 +4,10 @@ import Temp from './Components/Temp'
 
 function App() {
   return (
-    <div className="App">
+      <div className="App">
      <Temp/>
-     {/* <Forcast className="forecast"/> */}
-    </div>
+        {/* <Forcast className="forecast"/> */}
+      </div>
   );
 }
 
